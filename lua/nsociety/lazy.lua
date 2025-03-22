@@ -48,12 +48,13 @@ require("lazy").setup({
 		-- Lazy loading is not recommended because it is very tricky to make it work correctly in all situations.
 		lazy = false,
 	},
-	{'akinsho/toggleterm.nvim', version = "*", opts = {open_mapping = [[<c-/>]]}},
-	{ "nvim-treesitter/playground" },
+	{'akinsho/toggleterm.nvim', version = "*", opts = {
+		open_mapping = [[<c-/>]],
+		direction = 'float'
+	}},
 	{ "ThePrimeagen/harpoon" },
 	{ "mbbill/undotree" },
 	{ "tpope/vim-fugitive" },
-	{ "m4xshen/autoclose.nvim" },
 	{ "sbdchd/neoformat" },
 	{ "mattn/emmet-vim" },
 	{ "dense-analysis/ale" },
@@ -131,7 +132,7 @@ require("lazy").setup({
 				mapping = cmp.mapping.preset.insert({
 					['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
 					['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
-					['<C-y>'] = cmp.mapping.confirm({ select = true }),
+					['<C-a>'] = cmp.mapping.confirm({ select = true }),
 					["<C-Space>"] = cmp.mapping.complete(),
 				}),
 				sources = cmp.config.sources({
