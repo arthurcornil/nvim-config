@@ -28,15 +28,13 @@ require("lazy").setup({
 		version = "0.1.4",
 		dependencies = { "nvim-lua/plenary.nvim" },
 	},
-	{
-		"catppuccin/nvim",
-		name = "catppuccin",
-		priority = 1000,
-		config = function()
-			vim.cmd("colorscheme catppuccin")
-		end
-	},
 	{ "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
+	{
+		"folke/tokyonight.nvim",
+		lazy = false,
+		priority = 1000,
+		opts = {},
+	},
 	{
 		'stevearc/oil.nvim',
 		---@module 'oil'
@@ -61,7 +59,19 @@ require("lazy").setup({
 	{ "tpope/vim-surround" },
 	{ "vim-airline/vim-airline" },
 	{ "prisma/vim-prisma" },
-	{ "42Paris/42header" },
+	{
+		"Diogo-ss/42-header.nvim",
+		cmd = { "Stdheader" },
+		opts = {
+			default_map = true,
+			auto_update = true,
+			user = "arcornil",
+			mail = "arcornil@student.s19.be",
+		},
+		config = function(_, opts)
+			require("42header").setup(opts)
+		end,
+	},
 	{
 		"vhyrro/luarocks.nvim",
 		priority = 1000, -- Very high priority is required, luarocks.nvim should run as the first plugin in your config.
@@ -157,3 +167,6 @@ require("lazy").setup({
 		end
 	}
 })
+require("tokyonight").setup({
+	transparent = true
+});

@@ -17,6 +17,20 @@ vim.opt.scrolloff = 8
 vim.opt.signcolumn = "yes"
 vim.opt.isfname:append("@-@")
 vim.opt.updatetime = 50
-vim.opt.colorcolumn = "80"
+--vim.opt.colorcolumn = "80"
 vim.opt.autoindent = true
 vim.opt.clipboard = "unnamed"
+vim.cmd [[
+  highlight Normal guibg=none
+  highlight NonText guibg=none
+  highlight Normal ctermbg=none
+  highlight NonText ctermbg=none
+]]
+vim.cmd[[colorscheme tokyonight]]
+function LineNumberColors()
+    vim.api.nvim_set_hl(0, 'LineNrAbove', { fg='#9b9b9b', bold=true })
+    vim.api.nvim_set_hl(0, 'LineNr', { fg='#d6d6d6', bold=true })
+    vim.api.nvim_set_hl(0, 'LineNrBelow', { fg='#9b9b9b', bold=true })
+end
+LineNumberColors()
+vim.api.nvim_set_hl(0, "TelescopeNormal", { bg = "none" })

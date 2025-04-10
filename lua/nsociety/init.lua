@@ -1,3 +1,3 @@
-require("nsociety.set");
 require("nsociety.lazy");
+require("nsociety.set");
 require("nsociety.remap");
